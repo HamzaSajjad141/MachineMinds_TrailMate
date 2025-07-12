@@ -1,82 +1,138 @@
-# 🧳 Travel Chatbot — Project README
+# 🏡 Airbnb Scraper
 
-## 📘 Overview
-
-The Travel Chatbot is an intelligent agent-based system designed to help individuals and groups plan trips efficiently. It assists in finding suitable housing, recommending places to visit, and optimizing the overall trip plan to fit within the defined budget and preferred standard.
+This is an **asynchronous web scraper** built with **Python and Playwright** to extract Airbnb listings for a specific location, guest count, price range, and date range.
 
 ---
 
 ## 🚀 Features
 
-* Accommodation recommendations based on location, budget, and desired standard.
-* Activity and experience planning tailored to user preferences.
-* Budget optimization to maximize value and stay within budget constraints.
-* Supports individual and group trip planning.
+- ✅ Uses **Playwright (Chromium)** for browser automation  
+- ✅ Scrapes listing titles, prices, ratings, area, URLs  
+- ✅ Automatically scrolls to trigger lazy-loaded listings  
+- ✅ Asynchronous for fast, modern scraping  
+- ✅ Output is a clean JSON object  
 
 ---
 
-## 🪄 Agent Architecture
+## 📂 Project Structure
 
-### 1️⃣ Accommodation Agent
-
-* Finds appropriate housing based on inputs (location, budget, group size, and standard).
-* Provides ranked results with price, ratings, and booking info.
-
-### 2️⃣ Experience Planner Agent
-
-* Suggests an itinerary of attractions, dining, and entertainment aligned with user interests and trip duration.
-* Includes estimated costs for activities.
-
-### 3️⃣ Budget Optimizer Agent
-
-* Takes accommodation and experience suggestions and adjusts to fit within the total budget.
-* Highlights trade-offs between quality and cost.
-* Outputs a final recommended itinerary with a cost breakdown.
+```
+MachineMinds_TrailMate/
+│
+├── airbnb_scraper.py        # Main scraping script
+├── requirements.txt         # Python dependencies
+├── .gitignore               # Files ignored by Git
+└── README.md                # You're here!
+```
 
 ---
 
-## 🪜 Workflow
+## ⚙️ Setup Instructions
 
-1. User provides: location, dates, group size, preferences, budget, and standard.
-2. Accommodation Agent generates housing options.
-3. Experience Planner Agent generates a list of activities.
-4. Budget Optimizer Agent combines results and ensures the plan stays within budget.
-5. Chatbot outputs an optimized trip plan.
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/airbnb-scraper.git
+cd airbnb-scraper
+```
+
+### 2. Create a virtual environment
+
+```bash
+python -m venv venv
+```
+
+### 3. Activate the virtual environment
+
+**Windows:**
+
+```bash
+venv\Scripts\activate
+```
+
+**Mac/Linux:**
+
+```bash
+source venv/bin/activate
+```
+
+### 4. Install Python dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 5. Install Playwright browser binaries
+
+```bash
+playwright install chromium
+```
 
 ---
 
-## 📄 Output
+## ▶️ How to Run
 
-* Final itinerary: housing + activities + estimated total cost.
-* Optionally: booking links and contact information.
+In `airbnb_scraper.py`, update your input variables:
 
----
+```python
+location = "Istanbul"
+guests = 4
+max_price = 1500
+check_in = "2025-09-15"
+check_out = "2025-09-20"
+limit = 10
+```
 
-## 🧰 Future Enhancements
+Then run:
 
-* Group coordination tools (polls, consensus building).
-* Transportation suggestions.
-* Integration with booking APIs for instant reservations.
-* Dynamic re-planning based on real-time changes.
-
----
-
-## 📝 Setup & Usage
-
-(Describe here how to run or deploy the chatbot when implemented — e.g., installation, configuration, and execution steps. This section can be updated once implementation begins.)
-
----
-
-## 🤝 Contributing
-
-Contributions to improve features, fix bugs, or extend functionality are welcome. Please create a pull request or open an issue to discuss changes.
+```bash
+python airbnb_scraper.py
+```
 
 ---
 
-## 📜 License
+## 🧠 Code Overview
 
-Specify the license here (e.g., MIT, Apache 2.0, etc.).
+- `scrape_airbnb()`: Main async function to launch a browser, visit the Airbnb search page, and extract listings
+- Extracts:
+  - Title, subtitle, price
+  - URL and area
+  - Rating, reviews, and date range
+- Returns a structured JSON list
 
 ---
 
-For any questions or support, please contact the project maintainer or open an issue in the repository.
+## 📦 Sample Output
+
+```json
+[
+  {
+    "title": "Apartment in Istanbul",
+    "subtitle": "Spacious & Peaceful Flat with Sea View",
+    "price": "$1,319 for 5 nights",
+    "url": "https://www.airbnb.com/rooms/961550",
+    "location": "Istanbul",
+    "area": "Fatih",
+    "rating": "4.9",
+    "reviews": "112",
+    "check_in": "2025-09-15",
+    "check_out": "2025-09-20",
+    "nights": 5
+  }
+]
+```
+---
+
+## 📝 Notes
+
+- This tool is intended for **educational and personal use**
+- Airbnb may update their HTML structure — update selectors if needed
+- Always use responsibly and respect website terms of service
+
+---
+
+## 💡 Author
+
+Built by **Machine Minds** 🧠  
+For the **LeadWithAI Hackathon**  
+

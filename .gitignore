@@ -1,0 +1,24 @@
+# Ignore Python virtual environment
+venv/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# VS Code settings
+.vscode/
+
+# MacOS & Windows system files
+.DS_Store
+Thumbs.db
+
+# Python environment files
+.env
+*.env
+
+# Jupyter/IPython notebooks
+.ipynb_checkpoints/
+
+# Playwright browser cache (optional)
+playwright/.cache/
