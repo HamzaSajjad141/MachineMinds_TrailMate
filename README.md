@@ -6,9 +6,9 @@ This is an **asynchronous web scraper** built with **Python and Playwright** to 
 
 ## 🚀 Features
 
-- ✅ Uses **Playwright (Chromium)** for browser automation  
-- ✅ Scrapes listing titles, prices, ratings, area, URLs  
-- ✅ Automatically scrolls to trigger lazy-loaded listings  
+- ✅ Uses **Playwright (Chromium)** for browser automation
+- ✅ Handles pagination with smooth scrolling and click fixes  
+- ✅ Scrapes listing titles, prices, ratings, area, URLs   
 - ✅ Asynchronous for fast, modern scraping  
 - ✅ Output is a clean JSON object  
 
